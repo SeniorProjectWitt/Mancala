@@ -1,0 +1,193 @@
+
+public class HoleArray {
+	
+	private Player player = new Player();
+	
+	private Hole hole0 = new Hole();
+	private Hole hole1 = new Hole();
+	private Hole hole2 = new Hole();
+	private Hole hole3 = new Hole();
+	private Hole hole4 = new Hole();
+	private Hole hole5 = new Hole();
+	private Hole hole6 = new Hole();
+	private Hole hole7 = new Hole();
+	private Hole hole8 = new Hole();
+	private Hole hole9 = new Hole();
+	private Hole hole10 = new Hole();
+	private Hole hole11 = new Hole();
+	private Hole hole12 = new Hole();
+	private Hole hole13 = new Hole();
+	
+	private Hole[] arrayOfHoles = new Hole[14]; {
+	
+	arrayOfHoles[0] = hole0;
+	arrayOfHoles[1] = hole1;
+	arrayOfHoles[2] = hole2;
+	arrayOfHoles[3] = hole3;
+	arrayOfHoles[4] = hole4;
+	arrayOfHoles[5] = hole5;
+	arrayOfHoles[6] = hole6;
+	arrayOfHoles[7] = hole7;
+	arrayOfHoles[8] = hole8;
+	arrayOfHoles[9] = hole9;
+	arrayOfHoles[10] = hole10;
+	arrayOfHoles[11] = hole11;
+	arrayOfHoles[12] = hole12;
+	arrayOfHoles[13] = hole13;
+	}
+	
+	public void startGame() {
+		for (int i = 0; i < arrayOfHoles.length;i++) {
+			arrayOfHoles[i].resetNumBeads();
+		}
+		getArrayObject(6).clearHole();
+		getArrayObject(13).clearHole();
+	}
+	
+	public Hole getArrayObject(int x) {
+			return arrayOfHoles[x];
+	}
+	
+	public void pickHole(int w) {
+		int index = w;
+		int beads = getArrayObject(w).getNumBeads();
+		int i = 1;
+		int q = 1;
+		
+		if ((player.getPlayer() == 1 && w >= 0 && w <= 5) || (player.getPlayer() == 2 && w >=7 && w <= 12) && beads != 0) {
+			while (i <= beads) {
+				if (index+q == 14) {
+					index = 0;
+					q = 0;
+				}
+				
+				if (((index + q) == 6 && player.getPlayer() == 1) || ((index + q) == 13 && player.getPlayer() == 2) || (0 <= (index + q) && (index + q) <= 5) || (7 <= (index + q) && (index + q) <= 12)) {
+					getArrayObject(index+q).addToHole();
+				}
+				
+				if(((index + q) == 6 && player.getPlayer() == 2) || ((index + q) == 13 && player.getPlayer() == 1)) {
+					i--;
+				}
+
+				i++;
+				q++;
+			}
+
+		if (index+q == 14) {
+			index = 0;
+			q = 0;
+		}
+			
+		if (getArrayObject(index + q).getNumBeads() == 1 && (index + q != 6 || index + q != 13)) {
+
+			if (player.getPlayer() == 1) {
+				if (index + q == 0) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(12).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();
+					}
+					getArrayObject(0).clearHole();
+					getArrayObject(12).clearHole();
+				}
+				else if (index + q == 1) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(11).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(1).clearHole();
+					getArrayObject(11).clearHole();
+				}
+				else if (index + q == 2) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(10).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(2).clearHole();
+					getArrayObject(10).clearHole();
+				}
+				else if (index + q == 3) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(9).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(3).clearHole();
+					getArrayObject(9).clearHole();
+				}
+				else if (index + q == 4) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(8).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(4).clearHole();
+					getArrayObject(8).clearHole();
+				}
+				else if (index + q == 5) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(7).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(5).clearHole();
+					getArrayObject(7).clearHole();
+				}
+			}
+			if (player.getPlayer() == 2) {
+				if (index + q == 7) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(5).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(7).clearHole();
+					getArrayObject(5).clearHole();
+				}
+				else if (index + q == 8) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(4).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(8).clearHole();
+					getArrayObject(4).clearHole();
+				}
+				else if (index + q == 9) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(3).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(9).clearHole();
+					getArrayObject(3).clearHole();
+				}
+				else if (index + q == 10) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(2).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(10).clearHole();
+					getArrayObject(2).clearHole();
+				}
+				else if (index + q == 11) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(1).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(11).clearHole();
+					getArrayObject(1).clearHole();
+				}
+				else if (index + q == 12) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(0).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(12).clearHole();
+					getArrayObject(0).clearHole();
+				}
+			}
+		}
+		getArrayObject(w).clearHole();
+		if (((index + q == 6) && player.getPlayer() == 1) || ((index + q == 13) && player.getPlayer() == 2)) {
+			player.switchPlayer();
+		}
+		player.switchPlayer();
+		
+		}
+	}
+	
+}

@@ -1,0 +1,25 @@
+	public class Hole {
+
+		public static void main(String[] args) {
+			// TODO Auto-generated method stub
+		}
+		
+		private int numBeads;
+		
+		public int getNumBeads() {
+			return numBeads;
+		}
+		
+		public void resetNumBeads() {
+			this.numBeads = 4;
+		}
+		
+		public void clearHole() {
+			this.numBeads = 0;
+		}
+		
+		public void addToHole() {
+			numBeads++;
+		}
+		
+	} 

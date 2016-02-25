@@ -1,0 +1,128 @@
+	public class Test {
+
+		public static void main(String[] args) {
+			HoleArray newArray = new HoleArray();
+			newArray.startGame(); //begins game
+			Player player = new Player();
+			
+			newArray.pickHole(0);
+			System.out.println(newArray.getArrayObject(0).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(1).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(2).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(3).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(4).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(5).getNumBeads() + " Should be 4");
+			System.out.println("__________________________________________");
+			newArray.pickHole(7);
+			System.out.println(newArray.getArrayObject(7).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(8).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(9).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(10).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(11).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(12).getNumBeads() + " Should be 4");
+			System.out.println("__________________________________________");
+			newArray.pickHole(1);
+			System.out.println(newArray.getArrayObject(1).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(2).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(3).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(4).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(5).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(6).getNumBeads() + " Should be 5");
+			System.out.println("__________________________________________");
+			newArray.pickHole(8);
+			System.out.println(newArray.getArrayObject(8).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(9).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(10).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(11).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(12).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(13).getNumBeads() + " Should be 5");
+			System.out.println("__________________________________________");
+			newArray.pickHole(2);
+			System.out.println(newArray.getArrayObject(2).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(3).getNumBeads() + " Should be 7");
+			System.out.println(newArray.getArrayObject(4).getNumBeads() + " Should be 7");
+			System.out.println(newArray.getArrayObject(5).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(6).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(7).getNumBeads() + " Should be 1");
+			System.out.println("__________________________________________");
+			newArray.pickHole(9);
+			System.out.println(newArray.getArrayObject(9).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(10).getNumBeads() + " Should be 7");
+			System.out.println(newArray.getArrayObject(11).getNumBeads() + " Should be 7");
+			System.out.println(newArray.getArrayObject(12).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(13).getNumBeads() + " Should be 6");
+			System.out.println(newArray.getArrayObject(0).getNumBeads() + " Should be 1");
+			System.out.println("__________________________________________");
+			newArray.pickHole(3);
+			System.out.println(newArray.getArrayObject(3).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(4).getNumBeads() + " Should be 8");
+			System.out.println(newArray.getArrayObject(5).getNumBeads() + " Should be 7");
+			System.out.println(newArray.getArrayObject(6).getNumBeads() + " Should be 7");
+			System.out.println(newArray.getArrayObject(7).getNumBeads() + " Should be 2");
+			System.out.println(newArray.getArrayObject(8).getNumBeads() + " Should be 2");
+			System.out.println("__________________________________________");
+			newArray.pickHole(10);
+			System.out.println(newArray.getArrayObject(10).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(11).getNumBeads() + " Should be 8");
+			System.out.println(newArray.getArrayObject(12).getNumBeads() + " Should be 7");
+			System.out.println(newArray.getArrayObject(13).getNumBeads() + " Should be 7");
+			System.out.println(newArray.getArrayObject(0).getNumBeads() + " Should be 2");
+			System.out.println(newArray.getArrayObject(1).getNumBeads() + " Should be 2");
+			System.out.println("__________________________________________");
+			newArray.pickHole(4);
+			System.out.println(newArray.getArrayObject(4).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(5).getNumBeads() + " Should be 8");
+			System.out.println(newArray.getArrayObject(6).getNumBeads() + " Should be 8");
+			System.out.println(newArray.getArrayObject(7).getNumBeads() + " Should be 3");
+			System.out.println(newArray.getArrayObject(8).getNumBeads() + " Should be 3");
+			System.out.println(newArray.getArrayObject(9).getNumBeads() + " Should be 2");
+			System.out.println("__________________________________________");
+			newArray.pickHole(11);
+			System.out.println(newArray.getArrayObject(11).getNumBeads() + " Should be 0");			
+			System.out.println(newArray.getArrayObject(12).getNumBeads() + " Should be 9");
+			System.out.println(newArray.getArrayObject(13).getNumBeads() + " Should be 8");
+			System.out.println(newArray.getArrayObject(0).getNumBeads() + " Should be 4");
+			System.out.println(newArray.getArrayObject(1).getNumBeads() + " Should be 3");
+			System.out.println(newArray.getArrayObject(2).getNumBeads() + " Should be 2");
+			System.out.println("__________________________________________");
+			newArray.pickHole(5);
+			System.out.println(newArray.getArrayObject(6).getNumBeads() + " Should be 9");			
+			System.out.println(newArray.getArrayObject(7).getNumBeads() + " Should be 4");
+			System.out.println(newArray.getArrayObject(8).getNumBeads() + " Should be 4");
+			System.out.println(newArray.getArrayObject(9).getNumBeads() + " Should be 3");
+			System.out.println(newArray.getArrayObject(10).getNumBeads() + " Should be 2");
+			System.out.println(newArray.getArrayObject(11).getNumBeads() + " Should be 1");
+			System.out.println(newArray.getArrayObject(12).getNumBeads() + " Should be 10");
+			System.out.println(newArray.getArrayObject(13).getNumBeads() + " Should be 8");
+			System.out.println(newArray.getArrayObject(0).getNumBeads() + " Should be 5");
+			System.out.println(newArray.getArrayObject(1).getNumBeads() + " Should be 4");
+			
+			HoleArray captureArray = new HoleArray();
+			captureArray.startGame();
+			System.out.println("New Game!!!!!!!!!!!!!! double turn");
+			captureArray.pickHole(2);
+			System.out.println(player.getPlayer());
+			
+			HoleArray boopArray = new HoleArray();
+			boopArray.startGame();
+			System.out.println("New Game!!!!!!!!!!!!!! Capture");
+			boopArray.pickHole(5);
+			boopArray.pickHole(12);
+			boopArray.pickHole(0);
+			System.out.println(boopArray.getArrayObject(5).getNumBeads() + " Should be 0");
+			System.out.println(boopArray.getArrayObject(7).getNumBeads() + " Should be 0");
+			System.out.println(boopArray.getArrayObject(6).getNumBeads() + " Should be 7");
+		}
+	} 
+
+	
+	
+	
+//	p1 pick 5
+//	p2 pick 9
+//	p1 pick 0    capture at 5 and 7
+//	
+//	p2 pick 10
+//	p1 pick 1
+//	p2 pick 8    p2 turn again
+//	p2 pick 7    capture at 8 and 4

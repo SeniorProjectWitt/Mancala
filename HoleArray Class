@@ -194,11 +194,6 @@ public class HoleArray {
 			}
 		}
 		
-		//beginning of endgame code
-		if (getArrayObject(0).getNumBeads() == 0 && getArrayObject(1).getNumBeads() == 0 && getArrayObject(2).getNumBeads() == 0 && getArrayObject(3).getNumBeads() == 0 && getArrayObject(4).getNumBeads() == 0 && getArrayObject(5).getNumBeads() == 0) {
-			
-		}
-		
 		getArrayObject(w).clearHole();
 		
 		//code for extra turn
@@ -207,6 +202,54 @@ public class HoleArray {
 		}
 		player.switchPlayer();
 		
+		}
+		
+		//beginning of endgame code
+		if (getArrayObject(0).getNumBeads() == 0 && getArrayObject(1).getNumBeads() == 0 && getArrayObject(2).getNumBeads() == 0 && getArrayObject(3).getNumBeads() == 0 && getArrayObject(4).getNumBeads() == 0 && getArrayObject(5).getNumBeads() == 0) {
+			int sum = getArrayObject(7).getNumBeads() + getArrayObject(8).getNumBeads() + getArrayObject(9).getNumBeads() + getArrayObject(10).getNumBeads() + getArrayObject(11).getNumBeads() + getArrayObject(12).getNumBeads();
+			for (int fin = 0; fin < sum; fin++) {
+				getArrayObject(13).addToHole();
+			}
+			getArrayObject(7).clearHole();
+			getArrayObject(8).clearHole();
+			getArrayObject(9).clearHole();
+			getArrayObject(10).clearHole();
+			getArrayObject(11).clearHole();
+			getArrayObject(12).clearHole();
+			System.out.println("Game done!");
+			
+			if (getArrayObject(6).getNumBeads() > getArrayObject(13).getNumBeads()) {
+				System.out.println("Player one wins!");
+			}
+			else if (getArrayObject(6).getNumBeads() < getArrayObject(13).getNumBeads()) {
+				System.out.println("Player two wins!");
+			}
+			else {
+				System.out.println("It's a tie!");
+			}
+		}
+		if (getArrayObject(7).getNumBeads() == 0 && getArrayObject(8).getNumBeads() == 0 && getArrayObject(9).getNumBeads() == 0 && getArrayObject(10).getNumBeads() == 0 && getArrayObject(11).getNumBeads() == 0 && getArrayObject(12).getNumBeads() == 0) {
+			int sum = getArrayObject(0).getNumBeads() + getArrayObject(1).getNumBeads() + getArrayObject(2).getNumBeads() + getArrayObject(3).getNumBeads() + getArrayObject(4).getNumBeads() + getArrayObject(5).getNumBeads();
+			for (int fin = 0; fin < sum; fin++) {
+				getArrayObject(6).addToHole();
+			}
+			getArrayObject(0).clearHole();
+			getArrayObject(1).clearHole();
+			getArrayObject(2).clearHole();
+			getArrayObject(3).clearHole();
+			getArrayObject(4).clearHole();
+			getArrayObject(5).clearHole();
+			System.out.println("Game done!");
+			
+			if (getArrayObject(6).getNumBeads() > getArrayObject(13).getNumBeads()) {
+				System.out.println("Player one wins!");
+			}
+			else if (getArrayObject(6).getNumBeads() < getArrayObject(13).getNumBeads()) {
+				System.out.println("Player two wins!");
+			}
+			else {
+				System.out.println("It's a tie!");
+			}
 		}
 	}
 	

@@ -64,7 +64,7 @@ public class HoleArray {
 		if ((player.getPlayer() == 1 && w >= 0 && w <= 5) || (player.getPlayer() == 2 && w >=7 && w <= 12) && beads != 0) {
 			while (i <= beads) {
 				
-				//loops the array once it gets to 13
+				//loops the array back to 0 once it gets to array index 14
 				if (index+q == 14) {
 					index = 0;
 					q = 0;
@@ -82,17 +82,24 @@ public class HoleArray {
 				i++;
 				index++;
 			}
-		
-			//if it ends at 14, set it to index zero
+			
+		//if it ends at 14, set it to index zero
 		if (index == 14) {
 			index = 0;
 			q = 0;
 		}
+		
+		if (w == 7 || w == 8 || w == 9 || w == 10 || w == 11 || w == 12) {
+			if (beads == 20 - w) {
+				index--;
+			}
+		}
+		
 		//below is the code for capture
 		if (getArrayObject(index).getNumBeads() == 1 && index != 6 && index != 13) {
 			//for player one
 			if (player.getPlayer() == 1) {
-				if (index == 0) {
+				if (index == 0 && getArrayObject(12).getNumBeads() != 0) {
 					getArrayObject(6).addToHole();
 					for (int bob = getArrayObject(12).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(6).addToHole();
@@ -100,7 +107,7 @@ public class HoleArray {
 					getArrayObject(0).clearHole();
 					getArrayObject(12).clearHole();
 				}
-				else if (index == 1) {
+				else if (index == 1 && getArrayObject(11).getNumBeads() != 0) {
 					getArrayObject(6).addToHole();
 					for (int bob = getArrayObject(11).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(6).addToHole();	
@@ -108,7 +115,7 @@ public class HoleArray {
 					getArrayObject(1).clearHole();
 					getArrayObject(11).clearHole();
 				}
-				else if (index == 2) {
+				else if (index == 2 && getArrayObject(10).getNumBeads() != 0) {
 					getArrayObject(6).addToHole();
 					for (int bob = getArrayObject(10).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(6).addToHole();	
@@ -116,7 +123,7 @@ public class HoleArray {
 					getArrayObject(2).clearHole();
 					getArrayObject(10).clearHole();
 				}
-				else if (index == 3) {
+				else if (index == 3 && getArrayObject(9).getNumBeads() != 0) {
 					getArrayObject(6).addToHole();
 					for (int bob = getArrayObject(9).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(6).addToHole();	
@@ -124,7 +131,7 @@ public class HoleArray {
 					getArrayObject(3).clearHole();
 					getArrayObject(9).clearHole();
 				}
-				else if (index == 4) {
+				else if (index == 4 && getArrayObject(8).getNumBeads() != 0) {
 					getArrayObject(6).addToHole();
 					for (int bob = getArrayObject(8).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(6).addToHole();	
@@ -132,7 +139,7 @@ public class HoleArray {
 					getArrayObject(4).clearHole();
 					getArrayObject(8).clearHole();
 				}
-				else if (index == 5) {
+				else if (index == 5 && getArrayObject(7).getNumBeads() != 0) {
 					getArrayObject(6).addToHole();
 					for (int bob = getArrayObject(7).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(6).addToHole();	
@@ -143,7 +150,7 @@ public class HoleArray {
 			}
 			//for player two
 			if (player.getPlayer() == 2) {
-				if (index == 7) {
+				if (index == 7 && getArrayObject(5).getNumBeads() != 0) {
 					getArrayObject(13).addToHole();
 					for (int bob = getArrayObject(5).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(13).addToHole();	
@@ -151,7 +158,7 @@ public class HoleArray {
 					getArrayObject(7).clearHole();
 					getArrayObject(5).clearHole();
 				}
-				else if (index == 8) {
+				else if (index == 8 && getArrayObject(4).getNumBeads() != 0) {
 					getArrayObject(13).addToHole();
 					for (int bob = getArrayObject(4).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(13).addToHole();	
@@ -159,7 +166,7 @@ public class HoleArray {
 					getArrayObject(8).clearHole();
 					getArrayObject(4).clearHole();
 				}
-				else if (index == 9) {
+				else if (index == 9 && getArrayObject(3).getNumBeads() != 0) {
 					getArrayObject(13).addToHole();
 					for (int bob = getArrayObject(3).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(13).addToHole();	
@@ -167,7 +174,7 @@ public class HoleArray {
 					getArrayObject(9).clearHole();
 					getArrayObject(3).clearHole();
 				}
-				else if (index == 10) {
+				else if (index == 10 && getArrayObject(2).getNumBeads() != 0) {
 					getArrayObject(13).addToHole();
 					for (int bob = getArrayObject(2).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(13).addToHole();	
@@ -175,7 +182,7 @@ public class HoleArray {
 					getArrayObject(10).clearHole();
 					getArrayObject(2).clearHole();
 				}
-				else if (index == 11) {
+				else if (index == 11 && getArrayObject(1).getNumBeads() != 0) {
 					getArrayObject(13).addToHole();
 					for (int bob = getArrayObject(1).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(13).addToHole();	
@@ -183,7 +190,7 @@ public class HoleArray {
 					getArrayObject(11).clearHole();
 					getArrayObject(1).clearHole();
 				}
-				else if (index == 12) {
+				else if (index == 12 && getArrayObject(0).getNumBeads() != 0) {
 					getArrayObject(13).addToHole();
 					for (int bob = getArrayObject(0).getNumBeads(); bob > 0; bob--) {
 						getArrayObject(13).addToHole();	
@@ -228,7 +235,8 @@ public class HoleArray {
 				System.out.println("It's a tie!");
 			}
 		}
-		if (getArrayObject(7).getNumBeads() == 0 && getArrayObject(8).getNumBeads() == 0 && getArrayObject(9).getNumBeads() == 0 && getArrayObject(10).getNumBeads() == 0 && getArrayObject(11).getNumBeads() == 0 && getArrayObject(12).getNumBeads() == 0) {
+		
+		else if (getArrayObject(7).getNumBeads() == 0 && getArrayObject(8).getNumBeads() == 0 && getArrayObject(9).getNumBeads() == 0 && getArrayObject(10).getNumBeads() == 0 && getArrayObject(11).getNumBeads() == 0 && getArrayObject(12).getNumBeads() == 0) {
 			int sum = getArrayObject(0).getNumBeads() + getArrayObject(1).getNumBeads() + getArrayObject(2).getNumBeads() + getArrayObject(3).getNumBeads() + getArrayObject(4).getNumBeads() + getArrayObject(5).getNumBeads();
 			for (int fin = 0; fin < sum; fin++) {
 				getArrayObject(6).addToHole();
@@ -252,5 +260,4 @@ public class HoleArray {
 			}
 		}
 	}
-	
 }

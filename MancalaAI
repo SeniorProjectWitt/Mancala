@@ -8,10 +8,36 @@ public class MancalaAI {
 			if (Player.getPlayer() == 2) {
 //				System.out.println("THIS IS THE AIS TURN");
 				Random rn = new Random();
-				int answer = rn.nextInt(5);
+				int answer = rn.nextInt(6);
+				if (answer == 0) {
+					answer = 7;
+				}
+				
+				else if (answer == 1) {
+					answer = 8;
+				}
+				
+				else if (answer == 2) {
+					answer = 9;
+				}
+				
+				else if (answer == 3) {
+					answer = 10;
+				}
+				
+				else if (answer == 4) {
+					answer = 11;
+				}
+				
+				else if (answer == 5) {
+					answer = 12;
+				}
+				
 				HoleArray.pickHole(answer);
 				System.out.println("THIS IS THE AIS TURN");
-				HoleArray.player.switchPlayer();
+				
+				System.out.println("The AI chose hole " + answer);
+				
 			}
 		
 			else if (Player.getPlayer() == 1) {
@@ -19,7 +45,6 @@ public class MancalaAI {
 				System.out.println("Player 1, please enter the number of your move");
 				int n = thingy.nextInt();
 				HoleArray.pickHole(n);
-//				thingy.close();
 			}
 		}
 	}

@@ -224,8 +224,10 @@ public class HoleArray {
 		if (((index == 6) && player.getPlayer() == 1) || ((index == 13) && player.getPlayer() == 2)) {
 			player.switchPlayer();
 		}
-		player.switchPlayer();
 		
+		if (beads != 0) {
+			player.switchPlayer();
+		}
 		}
 		
 		//beginning of endgame code
@@ -251,6 +253,7 @@ public class HoleArray {
 			else {
 				System.out.println("It's a tie!");
 			}
+			game = 0;
 		}
 		
 		else if (getArrayObject(7).getNumBeads() == 0 && getArrayObject(8).getNumBeads() == 0 && getArrayObject(9).getNumBeads() == 0 && getArrayObject(10).getNumBeads() == 0 && getArrayObject(11).getNumBeads() == 0 && getArrayObject(12).getNumBeads() == 0) {
@@ -275,6 +278,8 @@ public class HoleArray {
 			else {
 				System.out.println("It's a tie!");
 			}
+			
+			game = 0;
 		}
 	}
 }

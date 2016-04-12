@@ -1,0 +1,342 @@
+package com.example.connor.myapplication;
+
+        import android.os.Bundle;
+        import android.support.design.widget.FloatingActionButton;
+        import android.support.design.widget.Snackbar;
+        import android.support.v7.app.AppCompatActivity;
+        import android.support.v7.widget.Toolbar;
+        import android.view.View;
+        import android.view.Menu;
+        import android.view.MenuItem;
+        import android.widget.Button;
+        import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    HoleArray game= new HoleArray();
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        game.startGame();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+    }
+
+    public void button1(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(0);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(0).getNumBeads());
+    }
+    public void button2(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(1);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(1).getNumBeads());
+    }
+    public void button3(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(2);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(2).getNumBeads());
+    }
+    public void button4(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(3);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(3).getNumBeads());
+    }
+    public void button5(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(4);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(4).getNumBeads());
+    }
+    public void button6(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(5);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(5).getNumBeads());
+    }
+    public void button7(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(7);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(7).getNumBeads());
+    }
+    public void button8(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(8);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(8).getNumBeads());
+    }
+    public void button9(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(9);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(9).getNumBeads());
+    }
+    public void button10(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(10);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(10).getNumBeads());
+    }
+    public void button11(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(11);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(11).getNumBeads());
+    }
+    public void button12(View v) {
+        // do something when the button is clicked
+        Button button=(Button) v;
+        game.pickHole(12);
+        hole1(v);
+        hole2(v);
+        hole3(v);
+        hole4(v);
+        hole5(v);
+        hole6(v);
+        hole7(v);
+        hole8(v);
+        hole9(v);
+        hole10(v);
+        hole11(v);
+        hole12(v);
+        well2(v);
+        well1(v);
+//        ((Button) v).setText("" + game.getArrayObject(12).getNumBeads());
+    }
+
+    public void hole1(View v) {
+        ((TextView)findViewById(R.id.textView0)).setText("" + game.getArrayObject(0).getNumBeads());
+    }
+    public void hole2(View v) {
+        ((TextView)findViewById(R.id.textView1)).setText("" + game.getArrayObject(1).getNumBeads());
+    }
+    public void hole3(View v) {
+        ((TextView)findViewById(R.id.textView2)).setText("" + game.getArrayObject(2).getNumBeads());
+    }
+    public void hole4(View v) {
+        ((TextView)findViewById(R.id.textView3)).setText("" + game.getArrayObject(3).getNumBeads());
+    }
+    public void hole5(View v) {
+        ((TextView)findViewById(R.id.textView4)).setText("" + game.getArrayObject(4).getNumBeads());
+    }
+    public void hole6(View v) {
+        ((TextView)findViewById(R.id.textView5)).setText("" + game.getArrayObject(5).getNumBeads());
+    }
+    public void hole7(View v) {
+        ((TextView)findViewById(R.id.textView7)).setText("" + game.getArrayObject(7).getNumBeads());
+    }
+    public void hole8(View v) {
+        ((TextView)findViewById(R.id.textView8)).setText("" + game.getArrayObject(8).getNumBeads());
+    }
+    public void hole9(View v) {
+        ((TextView)findViewById(R.id.textView9)).setText("" + game.getArrayObject(9).getNumBeads());
+    }
+    public void hole10(View v) {
+        ((TextView)findViewById(R.id.textView10)).setText("" + game.getArrayObject(10).getNumBeads());
+    }
+    public void hole11(View v) {
+        ((TextView)findViewById(R.id.textView11)).setText("" + game.getArrayObject(11).getNumBeads());
+    }
+    public void hole12(View v) {
+        ((TextView)findViewById(R.id.textView12)).setText("" + game.getArrayObject(12).getNumBeads());
+    }
+    public void well1(View v) {
+        ((TextView)findViewById(R.id.textView13)).setText("" + game.getArrayObject(6).getNumBeads());
+    }
+    public void well2(View v) {
+        ((TextView)findViewById(R.id.textView14)).setText("" + game.getArrayObject(13).getNumBeads());
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}

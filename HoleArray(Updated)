@@ -1,0 +1,338 @@
+import java.util.Scanner;
+
+
+public class HoleArray {
+	//create a player
+	public static  Player player = new Player();
+	
+	//create the holes
+	private Hole hole0 = new Hole();
+	private Hole hole1 = new Hole();
+	private Hole hole2 = new Hole();
+	private Hole hole3 = new Hole();
+	private Hole hole4 = new Hole();
+	private Hole hole5 = new Hole();
+	private Hole hole6 = new Hole();
+	private Hole hole7 = new Hole();
+	private Hole hole8 = new Hole();
+	private Hole hole9 = new Hole();
+	private Hole hole10 = new Hole();
+	private Hole hole11 = new Hole();
+	private Hole hole12 = new Hole();
+	private Hole hole13 = new Hole();
+	static int game = 0;
+	static int n = 0;
+	
+	//create a array of holes
+	//private static  Hole[] arrayOfHoles = new Hole[14]; {
+	public static  Hole[] arrayOfHoles = new Hole[14]; {
+	
+	//assign the indexes to the hole objects
+	arrayOfHoles[0] = hole0;
+	arrayOfHoles[1] = hole1;
+	arrayOfHoles[2] = hole2;
+	arrayOfHoles[3] = hole3;
+	arrayOfHoles[4] = hole4;
+	arrayOfHoles[5] = hole5;
+	arrayOfHoles[6] = hole6;
+	arrayOfHoles[7] = hole7;
+	arrayOfHoles[8] = hole8;
+	arrayOfHoles[9] = hole9;
+	arrayOfHoles[10] = hole10;
+	arrayOfHoles[11] = hole11;
+	arrayOfHoles[12] = hole12;
+	arrayOfHoles[13] = hole13;
+	}
+	
+	//starts a new game
+	public void startGame() {
+		game = 1;
+		for (int i = 0; i < arrayOfHoles.length;i++) {
+			arrayOfHoles[i].resetNumBeads();
+		}
+		getArrayObject(6).clearHole();
+		getArrayObject(13).clearHole();
+		
+		Scanner reader = new Scanner(System.in);
+		System.out.println("Please enter 1 for PvP, 2 for PvC, and 3 for exit");
+		n = reader.nextInt();
+		
+		if (n == 1) {
+			PvP.run();
+		}
+		
+		else if(n == 2) {			
+			System.out.println("Which difficulty would you like?");
+			System.out.println("Enter 1 for Easy");
+			System.out.println("Enter 2 for Medium");
+			System.out.println("Enter 3 for Hard");
+			System.out.println("Enter 4 for Exit");
+			n = reader.nextInt();
+			if(n==1){
+				HoleArray.game=1;
+				MancalaAI.run();
+			}
+			if(n==2){
+				HoleArray.game=1;
+				MancalaAI2.run();
+			}
+			if(n==3){
+				HoleArray.game=1;
+				MancalaAI3.run();
+			}
+			if(n==4){
+				System.out.println("Thank you for playing Mancala PvC");
+				return;
+			}
+			
+		}
+		
+		else if(n == 3){
+			System.out.println("Thank you for playing Mancala");
+			return;
+		}
+	}
+	
+	//gets the object at index x
+	public static  Hole getArrayObject(int x) {
+			return arrayOfHoles[x];
+	}
+	
+	//choose a hole during gameplay
+	public static  void pickHole(int w) {
+		int index = w;
+		int beads = getArrayObject(w).getNumBeads();
+		int i = 1;
+		int q = 1;
+		
+		//check if it is a legal move for which player it is
+		if ((player.getPlayer() == 1 && w >= 0 && w <= 5) || (player.getPlayer() == 2 && w >=7 && w <= 12) && beads != 0) {
+			while (i <= beads) {
+				
+				//loops the array back to 0 once it gets to array index 14
+				if (index+q == 14) {
+					index = 0;
+					q = 0;
+				}
+				
+				//add to hole if it is legal to do so
+				if (((index) == 6 && player.getPlayer() == 1) || ((index) == 13 && player.getPlayer() == 2) || (0 <= (index) && (index) <= 5) || (7 <= (index) && (index) <= 12)) {
+					getArrayObject(index+q).addToHole();
+				}
+				
+				if(((index) == 6 && player.getPlayer() == 2) || ((index) == 13 && player.getPlayer() == 1)) {
+					i--;
+				}
+				
+				i++;
+				index++;
+			}
+			
+		//if it ends at 14, set it to index zero
+		if (index == 14) {
+			index = 0;
+			q = 0;
+		}
+		
+		if (w == 7 || w == 8 || w == 9 || w == 10 || w == 11 || w == 12) {
+			if (beads == 20 - w) {
+				index--;
+			}
+		}
+		
+		//below is the code for capture
+		if (getArrayObject(index).getNumBeads() == 1 && index != 6 && index != 13) {
+			//for player one
+			if (player.getPlayer() == 1) {
+				if (index == 0 && getArrayObject(12).getNumBeads() != 0) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(12).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();
+					}
+					getArrayObject(0).clearHole();
+					getArrayObject(12).clearHole();
+				}
+				else if (index == 1 && getArrayObject(11).getNumBeads() != 0) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(11).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(1).clearHole();
+					getArrayObject(11).clearHole();
+				}
+				else if (index == 2 && getArrayObject(10).getNumBeads() != 0) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(10).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(2).clearHole();
+					getArrayObject(10).clearHole();
+				}
+				else if (index == 3 && getArrayObject(9).getNumBeads() != 0) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(9).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(3).clearHole();
+					getArrayObject(9).clearHole();
+				}
+				else if (index == 4 && getArrayObject(8).getNumBeads() != 0) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(8).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(4).clearHole();
+					getArrayObject(8).clearHole();
+				}
+				else if (index == 5 && getArrayObject(7).getNumBeads() != 0) {
+					getArrayObject(6).addToHole();
+					for (int bob = getArrayObject(7).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(6).addToHole();	
+					}
+					getArrayObject(5).clearHole();
+					getArrayObject(7).clearHole();
+				}
+			}
+			//for player two
+			if (player.getPlayer() == 2) {
+				if (index == 7 && getArrayObject(5).getNumBeads() != 0) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(5).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(7).clearHole();
+					getArrayObject(5).clearHole();
+				}
+				else if (index == 8 && getArrayObject(4).getNumBeads() != 0) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(4).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(8).clearHole();
+					getArrayObject(4).clearHole();
+				}
+				else if (index == 9 && getArrayObject(3).getNumBeads() != 0) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(3).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(9).clearHole();
+					getArrayObject(3).clearHole();
+				}
+				else if (index == 10 && getArrayObject(2).getNumBeads() != 0) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(2).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(10).clearHole();
+					getArrayObject(2).clearHole();
+				}
+				else if (index == 11 && getArrayObject(1).getNumBeads() != 0) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(1).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(11).clearHole();
+					getArrayObject(1).clearHole();
+				}
+				else if (index == 12 && getArrayObject(0).getNumBeads() != 0) {
+					getArrayObject(13).addToHole();
+					for (int bob = getArrayObject(0).getNumBeads(); bob > 0; bob--) {
+						getArrayObject(13).addToHole();	
+					}
+					getArrayObject(12).clearHole();
+					getArrayObject(0).clearHole();
+				}
+			}
+		}
+		
+		getArrayObject(w).clearHole();
+		
+		//code for extra turn
+		if (((index == 6) && player.getPlayer() == 1) || ((index == 13) && player.getPlayer() == 2)) {
+			player.switchPlayer();
+		}
+		
+		if (beads != 0) {
+			player.switchPlayer();
+		}
+		}
+		
+		//beginning of endgame code
+		if (getArrayObject(0).getNumBeads() == 0 && getArrayObject(1).getNumBeads() == 0 && getArrayObject(2).getNumBeads() == 0 && getArrayObject(3).getNumBeads() == 0 && getArrayObject(4).getNumBeads() == 0 && getArrayObject(5).getNumBeads() == 0) {
+			int sum = getArrayObject(7).getNumBeads() + getArrayObject(8).getNumBeads() + getArrayObject(9).getNumBeads() + getArrayObject(10).getNumBeads() + getArrayObject(11).getNumBeads() + getArrayObject(12).getNumBeads();
+			for (int fin = 0; fin < sum; fin++) {
+				getArrayObject(13).addToHole();
+			}
+			getArrayObject(7).clearHole();
+			getArrayObject(8).clearHole();
+			getArrayObject(9).clearHole();
+			getArrayObject(10).clearHole();
+			getArrayObject(11).clearHole();
+			getArrayObject(12).clearHole();
+			System.out.println("Game done!");
+			
+			if (getArrayObject(6).getNumBeads() > getArrayObject(13).getNumBeads()) {
+				System.out.println("Player one wins!");
+			}
+			else if (getArrayObject(6).getNumBeads() < getArrayObject(13).getNumBeads()) {
+				System.out.println("Player two wins!");
+			}
+			else {
+				System.out.println("It's a tie!");
+			}
+			System.out.println("The game is over 1");
+			game = 0;
+			System.out.println("The game is over 2");
+		}
+		
+		else if (getArrayObject(7).getNumBeads() == 0 && getArrayObject(8).getNumBeads() == 0 && getArrayObject(9).getNumBeads() == 0 && getArrayObject(10).getNumBeads() == 0 && getArrayObject(11).getNumBeads() == 0 && getArrayObject(12).getNumBeads() == 0) {
+			int sum = getArrayObject(0).getNumBeads() + getArrayObject(1).getNumBeads() + getArrayObject(2).getNumBeads() + getArrayObject(3).getNumBeads() + getArrayObject(4).getNumBeads() + getArrayObject(5).getNumBeads();
+			for (int fin = 0; fin < sum; fin++) {
+				getArrayObject(6).addToHole();
+			}
+			getArrayObject(0).clearHole();
+			getArrayObject(1).clearHole();
+			getArrayObject(2).clearHole();
+			getArrayObject(3).clearHole();
+			getArrayObject(4).clearHole();
+			getArrayObject(5).clearHole();
+			System.out.println("Game done!");
+			
+			if (getArrayObject(6).getNumBeads() > getArrayObject(13).getNumBeads()) {
+				System.out.println("Player one wins!");
+			}
+			else if (getArrayObject(6).getNumBeads() < getArrayObject(13).getNumBeads()) {
+				System.out.println("Player two wins!");
+			}
+			else {
+				System.out.println("It's a tie!");
+			}
+			
+			System.out.println("The game is over 3");
+			game = 0;
+			System.out.println("The game is over 4");
+		}
+	}
+	public static void printBoard(){
+		System.out.println("------------------------------------------------------------------");
+		System.out.println("Hole 0 has: "+HoleArray.getArrayObject(0).getNumBeads());
+		System.out.println("Hole 1 has: "+HoleArray.getArrayObject(1).getNumBeads());
+		System.out.println("Hole 2 has: "+HoleArray.getArrayObject(2).getNumBeads());
+		System.out.println("Hole 3 has: "+HoleArray.getArrayObject(3).getNumBeads());
+		System.out.println("Hole 4 has: "+HoleArray.getArrayObject(4).getNumBeads());
+		System.out.println("Hole 5 has: "+HoleArray.getArrayObject(5).getNumBeads());
+		System.out.println("");
+		System.out.println("Player 1's well has: "+HoleArray.getArrayObject(6).getNumBeads());
+		System.out.println("");
+		System.out.println("Hole 7 has: "+HoleArray.getArrayObject(7).getNumBeads());
+		System.out.println("Hole 8 has: "+HoleArray.getArrayObject(8).getNumBeads());
+		System.out.println("Hole 9 has: "+HoleArray.getArrayObject(9).getNumBeads());
+		System.out.println("Hole 10 has: "+HoleArray.getArrayObject(10).getNumBeads());
+		System.out.println("Hole 11 has: "+HoleArray.getArrayObject(11).getNumBeads());
+		System.out.println("Hole 12 has: "+HoleArray.getArrayObject(12).getNumBeads());
+		System.out.println("");
+		System.out.println("Player 2's well has: "+HoleArray.getArrayObject(13).getNumBeads());
+		System.out.println("------------------------------------------------------------------");
+	}
+}
